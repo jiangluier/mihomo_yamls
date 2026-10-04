@@ -1,6 +1,6 @@
-# OpenClash 覆写模块 - config.yaml
+# OpenClash 覆写模块 - mihomo.yaml
 # 生成日期：2026-10-04
-# 源文件：https://raw.githubusercontent.com/jiangluier/mihomo_yamls/main/THEYAMLS/Mobile_Modules/BoxProxy/config.yaml
+# 源文件：https://raw.githubusercontent.com/jiangluier/mihomo_yamls/main/THEYAMLS/General_Config/Repcz/mihomo.yaml
 # 格式：新版 OpenClash [YAML] 块覆写
 #
 # 本文件仅包含 [YAML] 块覆写内容，不含任何 [General] 插件设置。
@@ -83,17 +83,15 @@
 # ==========================================================
 #
 # proxy-providers:
-#   proxy1:
+#   Sub:
 #     health-check:
 #       enable: true
-#       interval: 300
-#       timeout: 1000
-#       tolerance: 100
-#       url: https://cp.cloudflare.com
+#       interval: 1800
+#       timeout: 5000
+#       url: http://1.1.1.1/generate_204
 #     interval: 86400
-#     path: ./proxy_provider/proxy1.yaml
 #     type: http
-#     url: 填写订阅链接
+#     url: http://your-service-provider
 
 # ==========================================================
 # proxy-groups（从源文件直接提取）
@@ -104,24 +102,42 @@
 # ==========================================================
 #
 # proxy-groups:
-# - exclude-type: dns
-#   icon: https://ghfast.top/raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Proxy.png
-#   include-all: true
-#   name: 国外代理
-#   type: select
-# - exclude-type: dns
-#   icon: https://ghfast.top/raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/China.png
-#   include-all: true
-#   name: 国内直连
+# - icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/applesafari.png
+#   name: Proxy
 #   proxies:
-#   - DIRECT
+#   - Fallback
 #   type: select
-# - icon: https://ghfast.top/raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Final.png
-#   name: 漏网之鱼
+#   use:
+#   - Sub
+# - icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png
+#   name: AI
 #   proxies:
-#   - 国外代理
-#   - 国内直连
+#   - Proxy
+#   - Fallback
 #   type: select
+#   use:
+#   - Sub
+# - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
+#   name: Telegram
+#   proxies:
+#   - Proxy
+#   - Fallback
+#   type: select
+#   use:
+#   - Sub
+# - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available_1.png
+#   name: Fallback
+#   type: fallback
+#   use:
+#   - Sub
+# - icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+#   name: Final
+#   proxies:
+#   - Proxy
+#   - Fallback
+#   type: select
+#   use:
+#   - Sub
 
 # ==========================================================
 # rule-providers（从源文件直接提取）
@@ -131,54 +147,66 @@
 # ==========================================================
 #
 # rule-providers:
-#   Fake-IP-Filter:
-#     behavior: domain
-#     format: mrs
+#   AI:
+#     behavior: classical
+#     format: text
 #     interval: 86400
-#     path: ./rule_provider/Fake-IP-Filter.mrs
-#     proxy: DIRECT
 #     type: http
-#     url: https://ghfast.top/github.com/DustinWin/ruleset_geodata/raw/refs/heads/mihomo-ruleset/fakeip-filter.mrs
-#   cn_domain:
-#     behavior: domain
-#     format: mrs
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/AI.list
+#   Direct:
+#     behavior: classical
+#     format: text
 #     interval: 86400
-#     path: ./rule_provider/cn_domain.mrs
-#     proxy: DIRECT
 #     type: http
-#     url: https://ghfast.top/github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/cn.mrs
-#   cn_ip:
-#     behavior: ipcidr
-#     format: mrs
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/Direct.list
+#   Github:
+#     behavior: classical
+#     format: text
 #     interval: 86400
-#     path: ./rule_provider/cn_ip.mrs
-#     proxy: DIRECT
 #     type: http
-#     url: https://ghfast.top/github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/cn.mrs
-#   private_domain:
-#     behavior: domain
-#     format: mrs
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/Github.list
+#   Google:
+#     behavior: classical
+#     format: text
 #     interval: 86400
-#     path: ./rule_provider/private_domain.mrs
-#     proxy: DIRECT
 #     type: http
-#     url: https://ghfast.top/github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/private.mrs
-#   private_ip:
-#     behavior: ipcidr
-#     format: mrs
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/Google.list
+#   Lan:
+#     behavior: classical
+#     format: text
 #     interval: 86400
-#     path: ./rule_provider/private_ip.mrs
-#     proxy: DIRECT
 #     type: http
-#     url: https://ghfast.top/github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/private.mrs
-#   proxy_domain:
-#     behavior: domain
-#     format: mrs
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/Lan.list
+#   Microsoft:
+#     behavior: classical
+#     format: text
 #     interval: 86400
-#     path: ./rule_provider/proxy_domain.mrs
-#     proxy: DIRECT
 #     type: http
-#     url: https://ghfast.top/github.com/DustinWin/ruleset_geodata/raw/refs/heads/mihomo-ruleset/proxy.mrs
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/Microsoft.list
+#   Proxy:
+#     behavior: classical
+#     format: text
+#     interval: 86400
+#     type: http
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/Proxy.list
+#   Reject:
+#     behavior: classical
+#     format: text
+#     interval: 86400
+#     type: http
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/Reject.list
+#   Telegram:
+#     behavior: classical
+#     format: text
+#     interval: 86400
+#     type: http
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/Telegram.list
+#   Twitter:
+#     behavior: classical
+#     format: text
+#     interval: 86400
+#     type: http
+#     url: https://github.com/Repcz/Tool/raw/X/mihomo/Rules/Twitter.list
 
 # ==========================================================
 # rules（从源文件直接提取）
@@ -192,10 +220,18 @@
 # ==========================================================
 #
 # rules:
-# - DST-PORT,53,DNS_Hijack
-# - RULE-SET,proxy_domain,国外代理
-# - OR,((RULE-SET,cn_ip),(RULE-SET,cn_domain),(RULE-SET,private_ip),(RULE-SET,private_domain)),国内直连
-# - MATCH,漏网之鱼
+# - RULE-SET,Direct,DIRECT
+# - RULE-SET,Reject,REJECT
+# - RULE-SET,AI,AI
+# - RULE-SET,Telegram,Telegram
+# - RULE-SET,Twitter,Fallback
+# - RULE-SET,Google,Fallback
+# - RULE-SET,Github,Fallback
+# - RULE-SET,Microsoft,Fallback
+# - RULE-SET,Proxy,Proxy
+# - RULE-SET,Lan,DIRECT
+# - GEOIP,CN,DIRECT
+# - MATCH,Final
 
 # ==========================================================
 # dns（从源文件直接提取）
@@ -206,17 +242,28 @@
 # ==========================================================
 #
 # dns:
+#   default-nameserver:
+#   - 223.5.5.5
+#   - 119.29.29.29
 #   enable: true
 #   enhanced-mode: fake-ip
 #   fake-ip-filter:
-#   - rule-set:Fake-IP-Filter
+#   - +.lan
+#   - '*'
+#   - +.local
+#   - +.cmpassport.com
+#   - id6.me
+#   - open.e.189.cn
+#   - mdn.open.wo.cn
+#   - opencloud.wostore.cn
+#   - auth.wosms.cn
+#   - +.10099.com.cn
+#   - +.msftconnecttest.com
+#   - +.msftncsi.com
+#   - lancache.steamcontent.com
 #   fake-ip-range: 198.18.0.1/16
-#   ipv6: true
-#   listen: 0.0.0.0:1053
+#   ipv6: false
+#   listen: :1053
 #   nameserver:
-#   - 8.8.8.8
-#   nameserver-policy:
-#     rule-set:cn_domain:
-#     - 223.5.5.5
-#   proxy-server-nameserver:
-#   - 223.5.5.5
+#   - https://doh.pub/dns-query
+#   - https://dns.alidns.com/dns-query
